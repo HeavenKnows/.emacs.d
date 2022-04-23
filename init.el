@@ -12,6 +12,6 @@
 (require 'custom-tools)      ;; 一些工具
 
 ;; 主题
-(load-theme 'spacemacs-dark)
+(load-theme 'spacemacs-dark t)
 
 ;;; init.el ends here
