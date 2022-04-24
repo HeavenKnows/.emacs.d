@@ -60,17 +60,17 @@
   )
 
 ;; 提供peek等功能, 暂时不需要
-;; (use-package lsp-ui
-;;   :commands lsp-ui-mode
-;;   )
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  )
 
 (use-package helm-lsp
   :commands helm-lsp-workspace-symbol
   )
 
-;; (use-package lsp-treemacs
-;;   :commands lsp-treemacs-errors-list
-;;   )
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list
+  )
 
 ;; 代码跳转后用来前进后退
 (use-package backward-forward

@@ -23,6 +23,7 @@
 ;;   )
 
 ;; Go配置
+(use-package go-mode)
 ;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.
@@ -30,6 +31,12 @@
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;; Lua配置
+(use-package lua-mode)
+
+;; Protobuf
+(use-package protobuf-mode)
 
 (provide 'custom-languages)
 ;;; custom-languages.el ends here
