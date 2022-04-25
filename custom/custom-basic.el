@@ -98,8 +98,36 @@
   :config (which-key-mode)
   )
 
-;; buffer循环
-(require 'windcycle)
+;; buffer移动
+(use-package buffer-move
+  :bind (
+         ("S-<left>" . buf-move-left)
+         ("S-<right>" . buf-move-right)
+         ("S-<up>" . buf-move-up)
+         ("S-<down>" . buf-move-down)
+         )
+  )
+
+;; 窗口跳转
+(global-set-key (kbd "C-M-<left>") 'windmove-left)
+(global-set-key (kbd "C-M-<right>") 'windmove-right)
+(global-set-key (kbd "C-M-<up>") 'windmove-up)
+(global-set-key (kbd "C-M-<down>") 'windmove-down)
+
+;; 调整窗口大小
+;; (use-package resize-window) ;; 或windresize
+;; TODO 这套有点反直觉的问题: 上下左右应该是移动边界
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;; 窗口切分
+(global-set-key (kbd "C-x -") 'split-window-vertically)
+(global-set-key (kbd "C-x |") 'split-window-horizontally)
+
+;; 关闭窗口
+(global-set-key (kbd "C-x x") 'delete-window)
 
 (provide 'custom-basic)
 ;;; custom-basic.el ends here
