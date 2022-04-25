@@ -53,7 +53,7 @@
          (lsp-mode . lsp-enable-which-key-integration)
          )
   :commands (lsp lsp-deferred)
-  :bind ("M-," . lsp-find-references)
+  ;; :bind ("M-," . lsp-find-references)
   :config
   (setq lsp-auto-guess-root t)
   (setq lsp-headerline-breadcrumb-enable nil) ;; 把最上方显示的文件路径关了
@@ -79,10 +79,16 @@
   :bind (:map backward-forward-mode-map
          ("<C-left>" . nil)
          ("<C-right>" . nil)
-         ("<M-left>" . backward-forward-previous-location)
-         ("<M-right>" . backward-forward-next-location)
+         ;; ("<M-left>" . backward-forward-previous-location)
+         ;; ("<M-right>" . backward-forward-next-location)
          )
   )
+
+;; 统一覆盖一些快捷键
+(global-set-key (kbd "M-'") 'lsp-find-references) ;; 找引用, 用引号
+(global-set-key (kbd "M-/") 'lsp-find-definition) ;; 找定义, 用问号
+(global-set-key (kbd "M-,") 'backward-forward-previous-location) ;; 后退, 用左箭头
+(global-set-key (kbd "M-.") 'backward-forward-next-location)     ;; 前进, 用右箭头
 
 (provide 'custom-programing)
 ;;; custom-programing.el ends here

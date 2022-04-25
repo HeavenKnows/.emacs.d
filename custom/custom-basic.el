@@ -2,6 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
+;; mac改键
+;; (require 'custom-common)
+;; (when *is-mac*
+;;   (setq mac-command-modifier 'meta)    ;; cmd  -> meta,  M-
+;;   (setq mac-option-modifier 'super)    ;; opt  -> super, s-
+;;   (setq mac-control-modifier 'control) ;; ctrl -> ctrl,  C-
+;;   (setq ns-function-modifier 'hyper))  ;; fn   -> hyper, H-
+
 ;; 显示相关
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
