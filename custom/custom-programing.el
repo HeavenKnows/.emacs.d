@@ -68,6 +68,9 @@
   :commands helm-lsp-workspace-symbol
   )
 
+;; 避免新开buffer来显示引用结果
+(use-package helm-xref)
+
 (use-package lsp-treemacs
   :commands lsp-treemacs-errors-list
   )
