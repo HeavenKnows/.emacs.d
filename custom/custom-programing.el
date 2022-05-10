@@ -7,7 +7,7 @@
   :config
   (setq yas-snippet-dirs '("~/.yasnippet/snippets"))
   (yas-global-mode 1)
-  ;;(global-set-key (kbd "M-n") 'yas-insert-snippet)
+  ;; (global-set-key (kbd "M-n") 'yas-insert-snippet)
   )
 
 ;; Projectile
@@ -55,7 +55,7 @@
   :commands (lsp lsp-deferred)
   ;; :bind ("M-," . lsp-find-references)
   :config
-  ;; (setq lsp-auto-guess-root t)
+  ;; (setq lsp-auto-guess-root t) ;; 如果存在子项目的话比较容易猜错, 手动指定吧
   (setq lsp-headerline-breadcrumb-enable nil) ;; 把最上方显示的文件路径关了
   )
 
@@ -69,7 +69,11 @@
   )
 
 ;; 避免新开buffer来显示引用结果
-(use-package helm-xref)
+(use-package helm-xref
+  :config
+  ;; 使用完整的路径(默认是只显示文件名)
+  (setq helm-xref-candidate-formatting-function 'helm-xref-format-candidate-full-path)
+  )
 
 (use-package lsp-treemacs
   :commands lsp-treemacs-errors-list
@@ -87,11 +91,16 @@
          )
   )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 统一覆盖一些快捷键
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 跳转
 ;; (global-set-key (kbd "M-'") 'lsp-find-references) ;; 找引用, 用引号
 ;; (global-set-key (kbd "M-/") 'lsp-find-definition) ;; 找定义, 用问号
-(global-set-key (kbd "M-'") 'lsp-ui-peek-find-references) ;; 找引用, 用引号
-(global-set-key (kbd "M-/") 'lsp-ui-peek-find-definition) ;; 找定义, 用问号
+;; 喜欢peek的话用这组, TODO: 现在还不是特别好用, 最好改成在主buffer预览, minibuffer只单行显示路径
+(global-set-key (kbd "M-/") 'lsp-ui-peek-find-definitions)
+(global-set-key (kbd "M-'") 'lsp-ui-peek-find-references)
+
 (global-set-key (kbd "M-,") 'backward-forward-previous-location) ;; 后退, 用左箭头
 (global-set-key (kbd "M-.") 'backward-forward-next-location)     ;; 前进, 用右箭头
 
