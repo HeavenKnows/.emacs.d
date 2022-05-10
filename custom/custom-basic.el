@@ -32,6 +32,7 @@
 (prefer-coding-system 'utf-8)
 (setenv "LC_CTYPE" "UTF-8")
 
+
 ;; Backup file settings
 (setq
  ;;backup-by-coping t
@@ -128,6 +129,9 @@
 
 ;; 关闭窗口
 (global-set-key (kbd "C-x x") 'delete-window)
+
+(global-set-key (kbd "M-p") 'previous-line)
+(global-set-key (kbd "M-n") 'next-line)
 
 (provide 'custom-basic)
 ;;; custom-basic.el ends here

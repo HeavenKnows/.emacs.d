@@ -7,7 +7,7 @@
   :config
   (setq yas-snippet-dirs '("~/.yasnippet/snippets"))
   (yas-global-mode 1)
-  (global-set-key (kbd "M-n") 'yas-insert-snippet)
+  ;;(global-set-key (kbd "M-n") 'yas-insert-snippet)
   )
 
 ;; Projectile
@@ -55,7 +55,7 @@
   :commands (lsp lsp-deferred)
   ;; :bind ("M-," . lsp-find-references)
   :config
-  (setq lsp-auto-guess-root t)
+  ;; (setq lsp-auto-guess-root t)
   (setq lsp-headerline-breadcrumb-enable nil) ;; 把最上方显示的文件路径关了
   )
 
@@ -88,8 +88,10 @@
   )
 
 ;; 统一覆盖一些快捷键
-(global-set-key (kbd "M-'") 'lsp-find-references) ;; 找引用, 用引号
-(global-set-key (kbd "M-/") 'lsp-find-definition) ;; 找定义, 用问号
+;; (global-set-key (kbd "M-'") 'lsp-find-references) ;; 找引用, 用引号
+;; (global-set-key (kbd "M-/") 'lsp-find-definition) ;; 找定义, 用问号
+(global-set-key (kbd "M-'") 'lsp-ui-peek-find-references) ;; 找引用, 用引号
+(global-set-key (kbd "M-/") 'lsp-ui-peek-find-definition) ;; 找定义, 用问号
 (global-set-key (kbd "M-,") 'backward-forward-previous-location) ;; 后退, 用左箭头
 (global-set-key (kbd "M-.") 'backward-forward-next-location)     ;; 前进, 用右箭头
 
