@@ -97,9 +97,10 @@
 ;; 跳转
 ;; (global-set-key (kbd "M-'") 'lsp-find-references) ;; 找引用, 用引号
 ;; (global-set-key (kbd "M-/") 'lsp-find-definition) ;; 找定义, 用问号
+
 ;; 喜欢peek的话用这组, TODO: 现在还不是特别好用, 最好改成在主buffer预览, minibuffer只单行显示路径
-(global-set-key (kbd "M-/") 'lsp-ui-peek-find-definitions)
-(global-set-key (kbd "M-'") 'lsp-ui-peek-find-references)
+(global-set-key (kbd "M-'") 'lsp-ui-peek-find-references) ;; 找引用, 用引号
+(global-set-key (kbd "M-/") 'lsp-ui-peek-find-definitions) ;; 找定义, 用问号
 
 (global-set-key (kbd "M-,") 'backward-forward-previous-location) ;; 后退, 用左箭头
 (global-set-key (kbd "M-.") 'backward-forward-next-location)     ;; 前进, 用右箭头
