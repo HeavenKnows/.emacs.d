@@ -16,9 +16,9 @@
   :config
   (setq projectile-completion-system 'helm)
   (setq projectile-switch-project-action 'helm-projectile)
-  ;; :bind (:map projectile-mode-map
+  :bind (:map projectile-mode-map
   ;;             ("s-p" . projectile-command-map)
-  ;;             ("C-c p" . projectile-command-map))
+               ("C-c p" . projectile-command-map))
   )
 
 (use-package helm-projectile
